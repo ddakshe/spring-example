@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Profile;
 @Profile({"h2db", "default"})
 public class DevDataSourceConfig {
 
-
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource() throws SQLException {
