@@ -3,6 +3,7 @@ package com.example.spring.config.exception;
 import com.example.spring.config.exception.response.ErrorResponse;
 import com.example.spring.config.exception.response.MethodArgumentNotValidResponse;
 import com.example.spring.config.exception.response.NoHandlerFoundResponse;
+import com.example.spring.config.exception.response.ResourceNotFoundResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     protected ResponseEntity<?> noHandlerFoundException(NoHandlerFoundException e){
         final ErrorResponse response = new NoHandlerFoundResponse(ErrorCode.NO_HANDLER_FOUND, e);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    protected ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException e){
+        final ResourceNotFoundResponse response = new ResourceNotFoundResponse(e);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 

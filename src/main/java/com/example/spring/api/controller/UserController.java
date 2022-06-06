@@ -1,6 +1,7 @@
 package com.example.spring.api.controller;
 
-import com.example.spring.api.dto.SaveUserDto;
+import com.example.spring.api.dto.UserSaveDto;
+import com.example.spring.api.dto.UserDto;
 import com.example.spring.api.service.UserService;
 import com.example.spring.domain.User;
 import lombok.RequiredArgsConstructor;
@@ -21,13 +22,14 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/users")
-    public List<User> getUsers() {
-        return userService.getUsers();
+    public List<UserDto> getUsers() {
+        List<UserDto> users = userService.getUsers();
+        return users;
     }
 
     @PostMapping(value = "/user")
-    public ResponseEntity<?> saveUser(@Valid @RequestBody SaveUserDto saveUserDto) {
-        User user = userService.saveUser(saveUserDto.toEntity());
+    public ResponseEntity<?> saveUser(@Valid @RequestBody UserSaveDto userSaveDto) {
+        User user = userService.saveUser(userSaveDto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(user.getId());
 

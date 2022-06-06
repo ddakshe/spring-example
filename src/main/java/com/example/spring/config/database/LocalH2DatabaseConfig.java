@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 @Profile({"h2db", "default"})
-public class DevDataSourceConfig {
+public class LocalH2DatabaseConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
