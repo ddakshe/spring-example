@@ -18,8 +18,8 @@ public class User extends BaseEntity{
     private int age;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
     @Setter
-    @JsonIgnore
     private Team team;
 
     @Embedded
