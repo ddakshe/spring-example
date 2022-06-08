@@ -1,9 +1,9 @@
 package com.example.spring.api.service;
 
-import com.example.spring.api.dto.UserDto;
+import com.example.spring.domain.dto.UserDto;
 import com.example.spring.api.dto.UserSaveDto;
-import com.example.spring.api.repository.TeamRepository;
-import com.example.spring.api.repository.UserRepository;
+import com.example.spring.repository.TeamRepository;
+import com.example.spring.repository.UserRepository;
 import com.example.spring.config.exception.ErrorCode;
 import com.example.spring.config.exception.ResourceNotFoundException;
 import com.example.spring.domain.Team;
@@ -25,8 +25,9 @@ public class UserService {
 
 
     public List<UserDto> getUsers() {
-        return userRepository.findAll()
-                .stream().map(UserDto::new).collect(Collectors.toList());
+//        return userRepository.findAll()
+//                .stream().map(UserDto::new).collect(Collectors.toList());
+        return userRepository.getUsers();
     }
 
     @Transactional

@@ -2,7 +2,6 @@ package com.example.spring.api.dto;
 
 import com.example.spring.domain.BaseEntity;
 import lombok.Getter;
-
 import java.time.ZonedDateTime;
 
 @Getter

@@ -3,7 +3,6 @@ package com.example.spring.api.dto;
 import com.example.spring.domain.Team;
 import lombok.Getter;
 
-
 @Getter
 public class TeamDto extends BaseResultDto {
 

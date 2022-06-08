@@ -1,7 +1,7 @@
 package com.example.spring.api.controller;
 
 import com.example.spring.api.dto.UserSaveDto;
-import com.example.spring.api.dto.UserDto;
+import com.example.spring.domain.dto.UserDto;
 import com.example.spring.api.service.UserService;
 import com.example.spring.domain.User;
 import lombok.RequiredArgsConstructor;
