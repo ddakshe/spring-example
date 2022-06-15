@@ -1,0 +1,15 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAIRU2ZCV6XDDAJAEQ
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
