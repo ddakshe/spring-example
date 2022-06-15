@@ -12,7 +12,7 @@ dependencies {
     /* Project Module
     * dependency 에 추가하는 경우 application.yml 에 있는 spring.profiles.include 에 추가할 모듈의 application.yml 의 suffix 를 추가해야함
     * 예) application-aws.yml 경우 aws 를 추가하면 됨*/
-    implementation project(':app:common')
+    implementation project(':modules:database-rds')
 //    implementation project(':modules:aws-s3')
 }
 

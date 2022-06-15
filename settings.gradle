@@ -1,5 +1,5 @@
 rootProject.name = 'spring'
 
-include 'app:common', 'app:api'
-include 'modules:aws-s3'
+include 'app:api'
+include 'modules:aws-s3', 'modules:database-rds'
 

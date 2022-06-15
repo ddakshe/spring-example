@@ -64,11 +64,7 @@ subprojects{
         /*TEST*/
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
-}
 
-//project(':app:api'){
-//    dependencies {
-//        implementation project(':app:common')
-//        implementation project(':modules:aws-s3')
-//    }
-//}
+    bootJar.enabled false
+    jar.enabled false
+}
