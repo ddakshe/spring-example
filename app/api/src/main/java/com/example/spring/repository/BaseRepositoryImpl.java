@@ -1,4 +1,4 @@
-package com.example.spring.database.repository;
+package com.example.spring.repository;
 
 
 import com.querydsl.jpa.impl.JPAQueryFactory;

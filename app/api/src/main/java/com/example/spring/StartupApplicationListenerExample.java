@@ -2,7 +2,7 @@ package com.example.spring;
 
 import com.example.spring.database.domain.Team;
 import com.example.spring.database.domain.User;
-import com.example.spring.database.repository.TeamRepository;
+import com.example.spring.repository.TeamRepository;
 import com.example.spring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationListener;

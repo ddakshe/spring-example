@@ -1,8 +1,8 @@
 package com.example.spring;
 import com.example.spring.database.domain.Team;
 import com.example.spring.database.domain.User;
-import com.example.spring.database.repository.TeamRepository;
-import com.example.spring.database.repository.UserRepository;
+import com.example.spring.repository.TeamRepository;
+import com.example.spring.repository.UserRepository;
 import com.example.spring.dto.UserDto;
 import com.querydsl.core.types.Projections;
 import org.junit.jupiter.api.BeforeEach;

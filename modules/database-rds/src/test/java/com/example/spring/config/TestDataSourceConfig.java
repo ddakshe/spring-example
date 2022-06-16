@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 @TestConfiguration
 public class TestDataSourceConfig {
 
-    // application.yml 파일 별도로 생성
+    // application-h2db.yml 파일 별도로 생성
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource(){ // 테스트 시에는 tcp 로 접근은 필요 없음

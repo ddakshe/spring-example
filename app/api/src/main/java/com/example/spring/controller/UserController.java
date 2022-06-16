@@ -1,5 +1,7 @@
 package com.example.spring.controller;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.spring.database.domain.User;
 import com.example.spring.dto.UserSaveDto;
 import com.example.spring.service.UserService;
@@ -18,13 +20,11 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
 
     @GetMapping("/users")
     public List<UserDto> getUsers() {
-        List<UserDto> users = userService.getUsers();
-        return users;
+        return userService.getUsers();
     }
 
     @PostMapping(value = "/user")

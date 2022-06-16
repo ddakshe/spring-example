@@ -1,6 +1,5 @@
 package com.example.spring.repository;
 
-import com.example.spring.database.repository.BaseRepositoryImpl;
 import com.example.spring.dto.UserDto;
 import com.querydsl.core.types.Projections;
 import org.springframework.stereotype.Repository;
@@ -15,8 +14,6 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserCustom
     @Override
     public List<UserDto> getUsers() {
         return queryFactory
-//                .select(Projections.constructor(UserDto.class,
-//                        user.name, user.age, user.team.name.as("teamName")))
                 .select(Projections.constructor(UserDto.class, user))
                 .from(user)
                 .join(user.team)

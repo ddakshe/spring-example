@@ -1,46 +1,56 @@
 package com.example.spring;
 
-
+import com.example.spring.config.TestDataSourceConfig;
 import com.example.spring.database.domain.Team;
 import com.example.spring.database.domain.User;
-import com.example.spring.database.repository.TeamRepository;
-import com.example.spring.database.repository.UserRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.*;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.annotation.DirtiesContext;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+@DataJpaTest
+@Import(TestDataSourceConfig.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+public class UserDataJpaTests {
+
+    @PersistenceContext
+    private  EntityManager entityManager;
 
 
-public class UserDataJpaTests extends BaseDataJpaTests  {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private TeamRepository teamRepository;
 
     @BeforeEach
-    @Transactional
     void setUp() {
+        entityManager.clear();
+
         Team team = Team.builder().name("개발팀").build();
-        teamRepository.save(team);
+        entityManager.persist(team);
 
         User user = User.builder().name("kennen").age(37).team(team).build();
-        userRepository.save(user);
+        entityManager.persist(user);
+
+    }
+
+    @Test
+    void exist() {
+        Team team = entityManager.find(Team.class, 1L);
+        Assertions.assertNotNull(team);
+        Assertions.assertEquals("개발팀", team.getName());
     }
 
     @Test
     void testSize() {
-        assertEquals(userRepository.count(), 1L);
+        String queryString = "select t  from Team t";
+        List<Team> resultList = entityManager.createQuery(queryString, Team.class).getResultList();
+        Assertions.assertEquals(resultList.size(), 1);
     }
 
-    @Test
-    void findAll() {
-        List<User> all = userRepository.findAll();
-        System.out.println(all);
-    }
 
 }
 

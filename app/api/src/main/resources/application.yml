@@ -8,10 +8,10 @@ spring:
       add-mappings: false
   profiles:
     group:
-      local-h2db : "h2db,local-common"
-      local-mariadb : "mariadb,local-common"
-    include: # 모듈 추가 시 해당 모듈의 application.yml 을 사용하기 위해선 include 에 추가해야함
-#      - aws # AWS 모듈의 application.yml load
+      local-h2db : "h2db,local-common,aws"
+      local-mariadb : "mariadb,local-common,aws"
+    include: # 모듈 추가 시 해당 모듈의 application-h2db.yml 을 사용하기 위해선 include 에 추가해야함
+      - aws # AWS 모듈의 application-h2db.yml load
 ---
 spring:
   config:
