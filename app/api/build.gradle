@@ -1,13 +1,11 @@
 plugins {
-    id 'io.spring.dependency-management'
+    id 'application'
+    id 'java-library'
 }
 
-apply plugin: 'application'
-apply plugin: 'java'
-
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
 
     /*QueryDSL*/
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
@@ -15,10 +13,12 @@ dependencies {
     * dependency 에 추가하는 경우 application.yml 에 있는 spring.profiles.include 에 추가할 모듈의 application.yml 의 suffix 를 추가해야함
     * 예) application-aws.yml 경우 aws 를 추가하면 됨*/
     implementation project(':modules:database-rds')
-    implementation project(':modules:aws-s3')
+    api project(':modules:jwt-auth')
+//    implementation project(':modules:aws-s3')
 }
 
 bootJar{
+    enabled true
     mainClassName = 'com.example.spring.Application'
 }
 

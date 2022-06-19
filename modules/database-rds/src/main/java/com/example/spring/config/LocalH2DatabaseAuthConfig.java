@@ -1,4 +1,4 @@
-package com.example.spring.config.database;
+package com.example.spring.config;
 
 import org.h2.tools.Server;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,14 +11,12 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @Configuration
-@Profile({"mariadb"})
-public class LocalMariaDatabaseConfig {
+@Profile({"h2db-auth"})
+public class LocalH2DatabaseAuthConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource() throws SQLException {
-
-        Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9093").start();
         return DataSourceBuilder.create().build();
     }
 }

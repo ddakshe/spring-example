@@ -1,6 +1,6 @@
 package com.example.spring;
-import com.example.spring.database.domain.Team;
-import com.example.spring.database.domain.User;
+import com.example.spring.domain.Team;
+import com.example.spring.domain.User;
 import com.example.spring.repository.TeamRepository;
 import com.example.spring.repository.UserRepository;
 import com.example.spring.dto.UserDto;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 import java.util.List;
-import static com.example.spring.database.domain.QUser.user;
+import static com.example.spring.domain.QUser.user;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 

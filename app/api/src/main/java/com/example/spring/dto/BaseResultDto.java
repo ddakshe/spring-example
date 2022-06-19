@@ -1,6 +1,6 @@
 package com.example.spring.dto;
 
-import com.example.spring.database.domain.BaseEntity;
+import com.example.spring.domain.BaseEntity;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
 

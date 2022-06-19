@@ -1,7 +1,7 @@
 package com.example.spring.dto;
 
-import com.example.spring.database.domain.Address;
-import com.example.spring.database.domain.User;
+import com.example.spring.domain.Address;
+import com.example.spring.domain.User;
 import lombok.Getter;
 
 @Getter

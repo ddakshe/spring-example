@@ -1,4 +1,4 @@
-package com.example.spring.database.domain;
+package com.example.spring.domain;
 
 import lombok.*;
 
@@ -11,6 +11,13 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class User extends BaseEntity {
+
+    @Column(nullable = false, length = 64)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
     @Column(nullable = false, length = 32)
     private String name;
     @Column(nullable = false)
@@ -22,6 +29,10 @@ public class User extends BaseEntity {
 
     @Embedded
     private Address homeAddress;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10)
+    private Role role;
 
 
     /*동적으로 Team 을 넣기위해 메소드 생성

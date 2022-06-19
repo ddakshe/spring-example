@@ -1,6 +1,6 @@
 package com.example.spring.dto;
 
-import com.example.spring.database.domain.Team;
+import com.example.spring.domain.Team;
 import lombok.Getter;
 
 @Getter

@@ -2,4 +2,7 @@ rootProject.name = 'spring'
 
 include 'app:api'
 include 'modules:aws-s3', 'modules:database-rds'
+include 'app:auth'
+include 'modules:jwt-auth'
+//findProject(':app:auth')?.name = 'auth'
 

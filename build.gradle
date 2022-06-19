@@ -52,6 +52,16 @@ subprojects{
     jar.enabled false
 }
 
+def webMvcProjects = [project(':app:api'), project(':app:auth')]
+configure(webMvcProjects){
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+    }
+}
+
 
 def jpaProjects = [project(':app:api'), project(':modules:database-rds')]
 configure(jpaProjects){

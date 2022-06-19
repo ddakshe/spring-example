@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.example.spring.database.domain.QUser.user;
+import static com.example.spring.domain.QUser.user;
 
 @Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserCustomRepository {

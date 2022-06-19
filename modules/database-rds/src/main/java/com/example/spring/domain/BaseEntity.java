@@ -1,4 +1,4 @@
-package com.example.spring.database.domain;
+package com.example.spring.domain;
 
 
 import lombok.Getter;

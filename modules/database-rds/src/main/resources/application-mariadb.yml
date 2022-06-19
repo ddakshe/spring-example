@@ -16,3 +16,17 @@ spring:
     properties:
       hibernate:
         format_sql: true
+logging:
+  level:
+    springframework:
+      orm:
+        jpa: trace
+    org:
+      hibernate:
+        persist:
+          entity: trace
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

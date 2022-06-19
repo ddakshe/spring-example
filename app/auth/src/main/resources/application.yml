@@ -1,0 +1,19 @@
+server:
+  port: ${PORT:8081}
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  profiles:
+    group:
+      local-h2db : "jwt"
+      local-mariadb : "mariadb,jwt"
+    include:
+      - h2db-auth
+logging:
+  level:
+    org:
+      springframework:
+        security: trace

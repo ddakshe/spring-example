@@ -1,0 +1,4 @@
+jwt:
+  secret: "1234"
+  access-token-valid-time: 3600000
+  refresh-token-valid-time: 7200000

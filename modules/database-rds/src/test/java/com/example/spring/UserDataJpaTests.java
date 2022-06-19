@@ -1,8 +1,8 @@
 package com.example.spring;
 
 import com.example.spring.config.TestDataSourceConfig;
-import com.example.spring.database.domain.Team;
-import com.example.spring.database.domain.User;
+import com.example.spring.domain.Team;
+import com.example.spring.domain.User;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -11,7 +11,6 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @DataJpaTest
