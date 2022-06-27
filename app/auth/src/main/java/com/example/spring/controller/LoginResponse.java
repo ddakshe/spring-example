@@ -1,6 +1,6 @@
 package com.example.spring.controller;
 
-import com.example.spring.JwtTokenInfo;
+import com.example.spring.jwt.JwtTokenInfo;
 import lombok.Getter;
 
 

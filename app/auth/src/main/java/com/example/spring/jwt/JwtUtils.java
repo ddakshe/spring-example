@@ -1,4 +1,4 @@
-package com.example.spring;
+package com.example.spring.jwt;
 
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;

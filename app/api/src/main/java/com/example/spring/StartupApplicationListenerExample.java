@@ -25,7 +25,7 @@ public class StartupApplicationListenerExample implements ApplicationListener<Co
         Team team = Team.builder().name("개발팀").build();
         teamRepository.save(team);
 
-        String password = passwordEncoder.encode("1234");
+        String password = passwordEncoder.encode("12345678");
         User user = User.builder().email("ddakshe@gmail.com")
                 .password(password).name("kennen").age(37).role(Role.ROLE_USER).team(team).build();
         userRepository.save(user);

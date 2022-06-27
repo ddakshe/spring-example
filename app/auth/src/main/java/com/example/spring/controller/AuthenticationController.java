@@ -1,8 +1,12 @@
 package com.example.spring.controller;
 
-import com.example.spring.*;
 import com.example.spring.domain.RefreshToken;
 import com.example.spring.domain.User;
+import com.example.spring.jwt.JwtAuthenticationToken;
+import com.example.spring.jwt.JwtTokenInfo;
+import com.example.spring.jwt.JwtUserDetails;
+import com.example.spring.jwt.JwtUtils;
+import com.example.spring.service.RefreshTokenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,7 +34,7 @@ public class AuthenticationController {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getId(), loginRequest.getPw()));
         JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
-        SpringUserDetails tokenUserDetails = jwtAuthenticationToken.getUserDetails();
+        JwtUserDetails tokenUserDetails = jwtAuthenticationToken.getUserDetails();
 
         JwtTokenInfo accessToken = jwtUtils.generateAccessToken(authentication.getName());
         JwtTokenInfo tokenInfo = jwtUtils.generateRefreshToken(authentication.getName());

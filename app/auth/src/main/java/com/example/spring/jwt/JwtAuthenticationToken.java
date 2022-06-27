@@ -1,4 +1,4 @@
-package com.example.spring;
+package com.example.spring.jwt;
 
 import lombok.Getter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -8,8 +8,9 @@ import java.util.Collection;
 
 @Getter
 public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken {
-    private final SpringUserDetails userDetails;
-    public JwtAuthenticationToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities, SpringUserDetails userDetails) {
+    private final JwtUserDetails userDetails;
+
+    public JwtAuthenticationToken(Object principal, Object credentials, Collection<? extends GrantedAuthority> authorities, JwtUserDetails userDetails) {
         super(principal, credentials, authorities);
         this.userDetails = userDetails;
     }

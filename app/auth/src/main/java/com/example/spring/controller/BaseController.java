@@ -1,11 +1,11 @@
 package com.example.spring.controller;
 
-import com.example.spring.SpringUserDetails;
+import com.example.spring.jwt.JwtUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public abstract class BaseController {
 
-    protected SpringUserDetails userDetails(){
-        return ((SpringUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails());
+    protected JwtUserDetails userDetails() {
+        return ((JwtUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails());
     }
 }

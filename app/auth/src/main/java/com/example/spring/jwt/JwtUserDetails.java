@@ -1,4 +1,4 @@
-package com.example.spring;
+package com.example.spring.jwt;
 
 import com.example.spring.domain.Role;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class SpringUserDetails implements UserDetails {
+public class JwtUserDetails implements UserDetails {
 
     @Getter
     private final Long userId;
@@ -21,8 +21,8 @@ public class SpringUserDetails implements UserDetails {
     private final String password;
     private final List<GrantedAuthority> authorities = new ArrayList<>();
 
-    public SpringUserDetails(Long userId,String email, String username, Role role) {
-        this.userId  = userId;
+    public JwtUserDetails(Long userId, String email, String username, Role role) {
+        this.userId = userId;
         this.email = email;
         this.username = username;
         this.password = null;

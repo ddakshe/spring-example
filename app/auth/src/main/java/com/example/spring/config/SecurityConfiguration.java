@@ -1,5 +1,8 @@
-package com.example.spring;
+package com.example.spring.config;
 
+import com.example.spring.JwtAuthorizationFilter;
+import com.example.spring.jwt.JwtAuthenticationEntryPoint;
+import com.example.spring.jwt.JwtAuthenticationManager;
 import com.example.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -54,11 +57,6 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-//    @Bean
-//    public WebSecurityCustomizer webSecurityCustomizer() {
-//        return (web) -> web.ignoring()
-//                .antMatchers("/ignore1", "/ignore2");
-//    }
 
 
     @Bean

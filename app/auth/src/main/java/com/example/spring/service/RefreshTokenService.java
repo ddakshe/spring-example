@@ -1,6 +1,7 @@
-package com.example.spring;
+package com.example.spring.service;
 
 import com.example.spring.domain.RefreshToken;
+import com.example.spring.jwt.JwtTokenInfo;
 import com.example.spring.repository.RefreshTokenRepository;
 import com.example.spring.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -20,16 +21,12 @@ public class RefreshTokenService {
         this.userRepository = userRepository;
         this.refreshTokenRepository = refreshTokenRepository;
     }
-
-
     public void saveRefreshToken(Long userId, JwtTokenInfo jwtTokenInfo) {
         userRepository.findById(userId)
                 .ifPresent(user -> {
                     RefreshToken refreshToken = new RefreshToken(user, jwtTokenInfo.getToken(), jwtTokenInfo.getExpiryDate().toInstant());
                     refreshTokenRepository.save(refreshToken);
                 });
-
-
     }
 
     public RefreshToken validateToken(String refreshToken) {

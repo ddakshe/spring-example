@@ -1,4 +1,4 @@
-package com.example.spring;
+package com.example.spring.jwt;
 
 import com.example.spring.domain.User;
 import com.example.spring.repository.UserRepository;
@@ -32,7 +32,7 @@ public class JwtAuthenticationManager implements AuthenticationManager {
             if (passwordEncoder.matches(authentication.getCredentials().toString(), user.getPassword())) {
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
-                SpringUserDetails userDetails = new SpringUserDetails(user.getId(), user.getEmail(), user.getName(), user.getRole());
+                JwtUserDetails userDetails = new JwtUserDetails(user.getId(), user.getEmail(), user.getName(), user.getRole());
                 return new JwtAuthenticationToken(authentication.getPrincipal(), authentication.getCredentials(), authorities, userDetails);
             }else{
                 throw new BadCredentialsException("Wrong password");
